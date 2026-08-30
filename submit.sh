@@ -7,8 +7,9 @@
 #SBATCH --time=04:00:00
 #SBATCH --output=train_%j.out
 #SBATCH --error=train_%j.err
-# If the default partition has no GPUs, uncomment and set this from `sinfo`:
-##SBATCH --partition=CHANGEME
+# Default partition has no GPUs on this cluster; gpu (3h) is too short for the
+# 4h request, so use gpu-long (3-day limit).
+#SBATCH --partition=gpu-long
 
 set -euo pipefail
 
